@@ -2,7 +2,7 @@ function photographerFactory(data) {
     const { name, country, city, tagline, price, portrait, id} = data;
 
     const picture = `assets/photographers/${portrait}`;
-    const photographerLink = ["photographer.html", id].join("?id=")
+    const photographerLink = ["photographer.html?id=", id].join("")
 
     function getUserCardDOM() {
         const article = document.createElement('article');
@@ -23,13 +23,14 @@ function photographerFactory(data) {
         nameElem.textContent = name;
         locationElem.textContent = [city, country].join(", ")
         taglineElem.textContent = tagline;
-        priceElem.textContent = price;
-        addCSSToDOM(article, figure, figureLink, figcaption, nameElem, locationElem, taglineElem, priceElem, img);
-        return article;
-    }
-    function addCSSToDOM(article, figure, figureLink, figcaption, nameElem, locationElem, taglineElem, priceElem, img) {
+        priceElem.textContent = [price, "€/jour"].join("");
         img.setAttribute("src", picture);
         img.setAttribute("alt", "");
+        addCSSToCardDOM(article, figure, figureLink, figcaption, locationElem, priceElem, img);
+        return article;
+    }
+
+    function addCSSToCardDOM(article, figure, figureLink, figcaption, locationElem, priceElem, img) {
         figureLink.setAttribute('href', photographerLink)
         img.style.borderRadius = "50%";
         article.style.display = 'flex'

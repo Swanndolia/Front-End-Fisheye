@@ -2,10 +2,38 @@
     display: none;
 }
 
+main {
+    margin: 0 100px;
+}
+
+.media_section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 70px;
+    margin-top: 100px;
+}
+
+.media_section img {
+    height: 200px;
+    width: 200px;
+}
+
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
-    margin: 0 100px;
+}
+
+.photograph-header img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
+
+.price-box {
+    position: absolute;
+    bottom: 0;
+    right: 5%;
+    background-color: #D3573C;
 }
 
 .contact_button {
