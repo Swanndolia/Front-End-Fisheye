@@ -1,3 +1,15 @@
+const userHeader = document.querySelector(".photograph-header");
+const contactButton = document.querySelector(".contact_button")
+const priceText = document.querySelector(".price-text")
+const userInfosElem = document.createElement('article');
+const nameElem = document.createElement("h1")
+const loationElem = document.createElement("p")
+const taglineElem = document.createElement("p")
+const imgElem = document.createElement("img")
+const modalContact = document.querySelector("#contact_modal");
+
+contactButton.addEventListener("click", showModalContact);
+
 async function getData() {
     const response = await fetch("data/photographers.json")
     return await response.json()
@@ -29,14 +41,6 @@ function setupUserCardDOM(userDetails) {
     console.log(userDetails)
     const { name, country, city, tagline, price, portrait, id } = userDetails;
     const picture = `assets/photographers/${portrait}`;
-    const userHeader = document.querySelector(".photograph-header");
-    const contactButton = document.querySelector(".contact_button")
-    const priceText = document.querySelector(".price-text")
-    const userInfosElem = document.createElement('article');
-    const nameElem = document.createElement("h1")
-    const loationElem = document.createElement("p")
-    const taglineElem = document.createElement("p")
-    const imgElem = document.createElement("img")
 
     priceText.textContent = price
     nameElem.textContent = name
@@ -54,7 +58,9 @@ function setupUserCardDOM(userDetails) {
     userHeader.appendChild(imgElem)
 }
 
-
+function showModalContact(){
+    modalContact.style.display = "block";
+}
 
 async function init() {
     // Récupère les datas des medias

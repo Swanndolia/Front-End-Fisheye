@@ -1,5 +1,13 @@
 #contact_modal {
     display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(26, 39, 156, 0.4);
 }
 
 main {
@@ -13,7 +21,7 @@ main {
     margin-top: 100px;
 }
 
-.media_section img {
+.media_section img, .media_section video {
     height: 200px;
     width: 200px;
 }
@@ -30,7 +38,7 @@ main {
 }
 
 .price-box {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     right: 5%;
     background-color: #D3573C;

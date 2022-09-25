@@ -1,25 +1,43 @@
 function mediaFactory(data) {
 
-    const { image } = data
+    const { image, video, title, likes } = data
 
     const picture = `assets/samples/${image}`;
+    const thumbnail = `assets/samples/${video}`;
 
     function getMediaCardDOM() {
-        const article = document.createElement('article');
         const figure = document.createElement('figure');
-        const img = document.createElement('img');
         const figureLink = document.createElement('a');
         const nameElem = document.createElement('h2');
+        const likesElem = document.createElement('p');
         const figcaption = document.createElement('figcaption');
+        const article = document.createElement('article');
+
+        if (image != undefined){
+            const img = document.createElement('img');
+            img.setAttribute("src", picture);
+            img.setAttribute("alt", "");
+            figure.appendChild(img);
+        }
+        else{
+            const videoElem = document.createElement('video');
+            const source = document.createElement("source");
+            source.setAttribute("src", thumbnail)
+            videoElem.appendChild(source);
+            figure.appendChild(videoElem);
+            console.log(source)
+        }
+
+        nameElem.textContent = title;
+        likesElem.textContent = likes;
 
         figureLink.appendChild(figure);
-        figure.appendChild(img);
-        figure.appendChild(nameElem);
+        figcaption.appendChild(nameElem);
+        figcaption.appendChild(likesElem);
         article.appendChild(figureLink);
         article.appendChild(figcaption);
 
-        img.setAttribute("src", picture);
-        img.setAttribute("alt", "");
+
         return article;
     }
     return { getMediaCardDOM }
