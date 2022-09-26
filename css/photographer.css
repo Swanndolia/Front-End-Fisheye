@@ -10,6 +10,67 @@
     background-color: rgba(100, 100, 100, 0.4);
 }
 
+#lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: white;
+}
+
+.lightbox-preview {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.lightbox-preview figure {
+    max-height: 90%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-preview figure img {
+    display: inline-block;
+    z-index: 100001;
+    width: 100%;
+    height: 90%;
+    object-fit: contain;
+}
+
+.lightbox-preview figure video {
+    display: inline-block;
+    z-index: 100001;
+    width: 100%;
+    height: 90%;
+    object-fit: contain;
+}
+
+.lightbox-preview figure figcaption {
+    align-self: flex-start;
+}
+
+.nav-lightbox,
+.close-lightbox {
+    position: absolute;
+}
+
+.nav-lightbox {
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
 main {
     margin: 0 100px;
 }
@@ -30,11 +91,8 @@ main {
     border-radius: 5px;
 }
 
-figure {
-    margin: 0;
-}
 
-figcaption {
+.caption-photographer {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -74,11 +132,11 @@ nav {
     margin: 10px 0;
 }
 
-.likes-btn{
+.likes-btn {
     cursor: pointer;
 }
 
-.likes-btn:hover{
+.likes-btn:hover {
     cursor: pointer;
     color: #D3573C;
 }
@@ -96,11 +154,12 @@ nav {
 .dropdown:hover .dropdown-sort {
     display: flex;
 }
-.dropdown:hover > button {
+
+.dropdown:hover>button {
     border-radius: 0px;
 }
 
-.dropdown-sort > button {
+.dropdown-sort>button {
     font-size: 20px;
     font-weight: bold;
     color: #FAFAFA;
@@ -113,7 +172,7 @@ nav {
     color: #FAFAFA;
 }
 
-.dropdown-sort > button:hover {
+.dropdown-sort>button:hover {
     background-color: #D3573C;
 }
 

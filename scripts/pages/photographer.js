@@ -1,3 +1,5 @@
+const lightBoxElem = document.querySelector("#lightbox")
+const lightBoxContentElem = document.querySelector(".lightbox-preview")
 const userHeader = document.querySelector(".photograph-header");
 const contactButton = document.querySelector(".contact_button")
 const bottomFixedElem = document.querySelector(".bottom-fixed-box");
@@ -31,7 +33,7 @@ async function filterMedia(medias, userId) {
     })
 }
 
-async function displayData(mediaList, userDetails) {
+async function displayData(userDetails) {
     setupUserCardDOM(userDetails)
     displayMedias()
 };
@@ -68,7 +70,30 @@ function displayMedias() {
         const mediaProcessing = mediaFactory(media);
         const mediaCardDOM = mediaProcessing.getMediaCardDOM();
         mediaSection.appendChild(mediaCardDOM);
+        if (mediaCardDOM.querySelector("img"))
+            mediaCardDOM.querySelector("img").addEventListener("click", function () { openLightbox(mediaCardDOM.querySelector("figure").cloneNode(true)) }); //TODO REFACTOR
+        else
+            mediaCardDOM.querySelector("video").addEventListener("click", function () { openLightbox(mediaCardDOM.querySelector("figure").cloneNode(true)) }); //TODO REFACTOR
     });
+}
+
+function openLightbox(figureElem) {
+    lightBoxElem.style.display = "block";
+    lightBoxContentElem.replaceChildren();
+    figureElem.querySelector("figcaption").removeChild(figureElem.querySelector("figcaption").lastChild)
+    lightBoxContentElem.appendChild(figureElem);
+}
+
+function navPrevFigure() {
+
+}
+function navNextFigure() {
+
+}
+
+function closeLightbox() {
+    console.log()
+    lightBoxElem.style.display = "none";
 }
 
 function showModalContact() {
@@ -102,7 +127,7 @@ async function init() {
     const userDetails = await getUserDetails(photographers, userId);
     mediaList = await filterMedia(media, userId);
     totalLikesElem.textContent = [getTotalLikes(mediaList), "❤"].join(" ");
-    displayData(mediaList, userDetails)
+    displayData(userDetails)
 };
 
 init();

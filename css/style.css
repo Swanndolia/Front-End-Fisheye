@@ -5,6 +5,9 @@ body {
     margin: 0;
 }
 
+button{
+    cursor: pointer;
+}
 
 header {
     display: flex;

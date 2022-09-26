@@ -17,6 +17,7 @@ function mediaFactory(data) {
             const img = document.createElement('img');
             img.setAttribute("src", picture);
             img.setAttribute("alt", "");
+            img.style.cursor = "pointer"
             figure.appendChild(img);
         }
         else {
@@ -24,33 +25,37 @@ function mediaFactory(data) {
             const source = document.createElement("source");
             source.setAttribute("src", thumbnail)
             videoElem.appendChild(source);
+            videoElem.style.cursor = "pointer"
             figure.appendChild(videoElem);
-            console.log(source)
         }
 
+        figure.appendChild(figcaption);
         nameElem.textContent = title;
         likesElem.textContent = [likes, "❤"].join(" ");
         likesElem.classList.add("likes-btn")
-        likesElem.addEventListener("click", function () {
-            if (likesElem.hasAttribute("liked", true)) {
-                likesElem.textContent = [likes, "❤"].join(" ");
-                likesElem.removeAttribute("liked")
-                document.querySelector(".bottom-fixed-box").firstElementChild.textContent = [document.querySelector(".bottom-fixed-box").firstElementChild.textContent.split(" ")[0] - 1, "❤"].join(" ")
-            }
-            else {
-                likesElem.textContent = [likes + 1, "❤"].join(" ");
-                likesElem.setAttribute("liked", true)
-                document.querySelector(".bottom-fixed-box").firstElementChild.textContent = [parseInt(document.querySelector(".bottom-fixed-box").firstElementChild.textContent.split(" ")[0]) + 1, "❤"].join(" ")
-            }
-        });
+        likesElem.addEventListener("click", function () { handleLikes(likes, likesElem) });
         figureLink.appendChild(figure);
         figcaption.appendChild(nameElem);
         figcaption.appendChild(likesElem);
+        figcaption.classList.add('caption-photographer')
         article.appendChild(figureLink);
-        article.appendChild(figcaption);
 
 
         return article;
     }
     return { getMediaCardDOM }
 }
+
+function handleLikes(likes, likesElem) {
+    if (likesElem.hasAttribute("liked", true)) {
+        likesElem.textContent = [likes, "❤"].join(" ");
+        likesElem.removeAttribute("liked")
+        document.querySelector(".bottom-fixed-box").firstElementChild.textContent = [document.querySelector(".bottom-fixed-box").firstElementChild.textContent.split(" ")[0] - 1, "❤"].join(" ")
+    }
+    else {
+        likesElem.textContent = [likes + 1, "❤"].join(" ");
+        likesElem.setAttribute("liked", true)
+        document.querySelector(".bottom-fixed-box").firstElementChild.textContent = [parseInt(document.querySelector(".bottom-fixed-box").firstElementChild.textContent.split(" ")[0]) + 1, "❤"].join(" ")
+    }
+}
+
