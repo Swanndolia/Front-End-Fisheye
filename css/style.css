@@ -14,11 +14,6 @@ header {
     height: 90px;
 }
 
-nav{
-    display: flex;
-    flex-direction: row;
-}
-
 h1 {
     color: #901C1C;
     margin-right: 100px;

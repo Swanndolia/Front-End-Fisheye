@@ -19,7 +19,13 @@
     </header>
     <nav>
       <p>Trier par</p>
-      <button class="sort-btn">Popularité</button>
+      <div class="dropdown">
+        <button onclick="sortMedia('likes')" class="sort-btn">Popularité</button>
+        <div class="dropdown-sort">
+          <button onclick="sortMedia('date')">Date</button>
+          <button onclick="sortMedia('title')">Titre</button>
+        </div>
+      </div>
     </nav>
     <section class="media_section">
 

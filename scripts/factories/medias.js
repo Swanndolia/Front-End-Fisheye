@@ -13,13 +13,13 @@ function mediaFactory(data) {
         const figcaption = document.createElement('figcaption');
         const article = document.createElement('article');
 
-        if (image != undefined){
+        if (image != undefined) {
             const img = document.createElement('img');
             img.setAttribute("src", picture);
             img.setAttribute("alt", "");
             figure.appendChild(img);
         }
-        else{
+        else {
             const videoElem = document.createElement('video');
             const source = document.createElement("source");
             source.setAttribute("src", thumbnail)
@@ -29,8 +29,20 @@ function mediaFactory(data) {
         }
 
         nameElem.textContent = title;
-        likesElem.textContent = [likes, "❤"].join("");
-
+        likesElem.textContent = [likes, "❤"].join(" ");
+        likesElem.classList.add("likes-btn")
+        likesElem.addEventListener("click", function () {
+            if (likesElem.hasAttribute("liked", true)) {
+                likesElem.textContent = [likes, "❤"].join(" ");
+                likesElem.removeAttribute("liked")
+                document.querySelector(".bottom-fixed-box").firstElementChild.textContent = [document.querySelector(".bottom-fixed-box").firstElementChild.textContent.split(" ")[0] - 1, "❤"].join(" ")
+            }
+            else {
+                likesElem.textContent = [likes + 1, "❤"].join(" ");
+                likesElem.setAttribute("liked", true)
+                document.querySelector(".bottom-fixed-box").firstElementChild.textContent = [parseInt(document.querySelector(".bottom-fixed-box").firstElementChild.textContent.split(" ")[0]) + 1, "❤"].join(" ")
+            }
+        });
         figureLink.appendChild(figure);
         figcaption.appendChild(nameElem);
         figcaption.appendChild(likesElem);

@@ -10,6 +10,8 @@ const taglineElem = document.createElement("p");
 const imgElem = document.createElement("img");
 const modalContact = document.querySelector("#contact_modal");
 
+let mediaList;
+
 contactButton.addEventListener("click", showModalContact);
 
 async function getData() {
@@ -31,12 +33,7 @@ async function filterMedia(medias, userId) {
 
 async function displayData(mediaList, userDetails) {
     setupUserCardDOM(userDetails)
-    const mediaSection = document.querySelector(".media_section");
-    mediaList.forEach((media) => {
-        const mediaProcessing = mediaFactory(media);
-        const mediaCardDOM = mediaProcessing.getMediaCardDOM();
-        mediaSection.appendChild(mediaCardDOM);
-    });
+    displayMedias()
 };
 
 function setupUserCardDOM(userDetails) {
@@ -48,6 +45,7 @@ function setupUserCardDOM(userDetails) {
     nameElem.textContent = name;
     loationElem.textContent = [city, country].join(", ")
     taglineElem.textContent = tagline
+
 
     imgElem.setAttribute("src", picture);
     imgElem.setAttribute("alt", "");
@@ -63,8 +61,38 @@ function setupUserCardDOM(userDetails) {
     userHeader.appendChild(imgElem)
 }
 
+function displayMedias() {
+    const mediaSection = document.querySelector(".media_section");
+    mediaSection.replaceChildren()
+    mediaList.forEach((media) => {
+        const mediaProcessing = mediaFactory(media);
+        const mediaCardDOM = mediaProcessing.getMediaCardDOM();
+        mediaSection.appendChild(mediaCardDOM);
+    });
+}
+
 function showModalContact() {
     modalContact.style.display = "block";
+}
+
+function getTotalLikes(mediaList) {
+    let totalLikes = 0;
+    mediaList.forEach(media => {
+        totalLikes += media.likes;
+    });
+    return totalLikes;
+}
+
+async function sortMedia(order) {
+    nestedSort = (prop1, prop2 = null, direction = 'asc') => (e1, e2) => {
+        const a = prop2 ? e1[prop1][prop2] : e1[prop1],
+            b = prop2 ? e2[prop1][prop2] : e2[prop1],
+            sortOrder = direction === "asc" ? 1 : -1
+        return (a < b) ? -sortOrder : (a > b) ? sortOrder : 0;
+    }//change it'sawful
+    mediaList.sort(nestedSort(order))
+
+    displayMedias()
 }
 
 async function init() {
@@ -72,7 +100,8 @@ async function init() {
     const userId = new URLSearchParams(window.location.search).get("id");
     const { photographers, media } = await getData();
     const userDetails = await getUserDetails(photographers, userId);
-    const mediaList = await filterMedia(media, userId);
+    mediaList = await filterMedia(media, userId);
+    totalLikesElem.textContent = [getTotalLikes(mediaList), "❤"].join(" ");
     displayData(mediaList, userDetails)
 };
 
