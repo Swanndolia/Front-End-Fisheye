@@ -1,52 +1,56 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
-  </head>
-  <body>
-    <header>
-      <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Fisheyes Home page"/></a>
-    </header>
-    <main id="main">
-      <header class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-      </header>
-      <span><p>Trier Par</p> <select><option>Popularité</option><option>Date</option><option>Titre</option></select></span>
-      <section class="media_section">
 
-      </section>
-    </main>
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-            <label>Nom</label>
-						<input />
-            <label>Email</label>
-						<input />
-            <label>Votre message</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
-    <aside class="price-box">
-      <!-- stuff -->
-      <p class="price-text"></p>
+<head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+  <title>Fisheye - photographe </title>
+</head>
+
+<body>
+  <header>
+    <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Fisheyes Home page" /></a>
+  </header>
+  <main id="main">
+    <header class="photograph-header">
+      <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+    </header>
+    <nav>
+      <p>Trier par</p>
+      <button class="sort-btn">Popularité</button>
+    </nav>
+    <section class="media_section">
+
+    </section>
+  </main>
+  <div id="contact_modal">
+    <div class="modal">
+      <header>
+        <h2>Contactez-moi</h2>
+        <img src="assets/icons/close.svg" onclick="closeModal()" />
+      </header>
+      <form>
+        <div>
+          <label>Prénom</label>
+          <input />
+          <label>Nom</label>
+          <input />
+          <label>Email</label>
+          <input />
+          <label>Votre message</label>
+          <input />
+        </div>
+        <button class="contact_button">Envoyer</button>
+      </form>
+    </div>
+  </div>
+  <aside class="bottom-fixed-box">
   </aside>
-    <script src="scripts/factories/medias.js"></script>
-    <script src="scripts/pages/photographer.js"></script>
-    <script src="scripts/utils/contactForm.js"></script>
-  </body>
+  <script src="scripts/factories/medias.js"></script>
+  <script src="scripts/pages/photographer.js"></script>
+  <script src="scripts/utils/contactForm.js"></script>
+</body>
+
 </html>

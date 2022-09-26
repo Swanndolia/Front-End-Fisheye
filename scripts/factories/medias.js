@@ -8,7 +8,7 @@ function mediaFactory(data) {
     function getMediaCardDOM() {
         const figure = document.createElement('figure');
         const figureLink = document.createElement('a');
-        const nameElem = document.createElement('h2');
+        const nameElem = document.createElement('p');
         const likesElem = document.createElement('p');
         const figcaption = document.createElement('figcaption');
         const article = document.createElement('article');
@@ -29,7 +29,7 @@ function mediaFactory(data) {
         }
 
         nameElem.textContent = title;
-        likesElem.textContent = likes;
+        likesElem.textContent = [likes, "❤"].join("");
 
         figureLink.appendChild(figure);
         figcaption.appendChild(nameElem);

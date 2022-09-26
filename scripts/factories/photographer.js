@@ -40,7 +40,7 @@ function photographerFactory(data) {
         figure.style.margin = '0'
         figcaption.style.lineHeight = "40%"
         locationElem.style.color = "#901C1C"
-        priceElem.style.color = "grey"
+        priceElem.style.color = "#525252"
         figure.childNodes.forEach(element => element.style.margin = "0")
         article.childNodes.forEach(element => element.style.textAlign = "center")
     }

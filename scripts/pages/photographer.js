@@ -1,11 +1,13 @@
 const userHeader = document.querySelector(".photograph-header");
 const contactButton = document.querySelector(".contact_button")
-const priceText = document.querySelector(".price-text")
+const bottomFixedElem = document.querySelector(".bottom-fixed-box");
+const priceElem = document.createElement("p");
+const totalLikesElem = document.createElement("p");
 const userInfosElem = document.createElement('article');
-const nameElem = document.createElement("h1")
-const loationElem = document.createElement("p")
-const taglineElem = document.createElement("p")
-const imgElem = document.createElement("img")
+const nameElem = document.createElement("h1");
+const loationElem = document.createElement("p");
+const taglineElem = document.createElement("p");
+const imgElem = document.createElement("img");
 const modalContact = document.querySelector("#contact_modal");
 
 contactButton.addEventListener("click", showModalContact);
@@ -42,13 +44,16 @@ function setupUserCardDOM(userDetails) {
     const { name, country, city, tagline, price, portrait, id } = userDetails;
     const picture = `assets/photographers/${portrait}`;
 
-    priceText.textContent = price
-    nameElem.textContent = name
+    priceElem.textContent = [price, "€ / jour"].join("");
+    nameElem.textContent = name;
     loationElem.textContent = [city, country].join(", ")
     taglineElem.textContent = tagline
 
     imgElem.setAttribute("src", picture);
     imgElem.setAttribute("alt", "");
+
+    bottomFixedElem.appendChild(totalLikesElem)
+    bottomFixedElem.appendChild(priceElem)
 
     userInfosElem.appendChild(nameElem)
     userInfosElem.appendChild(loationElem)
@@ -58,7 +63,7 @@ function setupUserCardDOM(userDetails) {
     userHeader.appendChild(imgElem)
 }
 
-function showModalContact(){
+function showModalContact() {
     modalContact.style.display = "block";
 }
 
