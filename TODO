@@ -1,7 +1,7 @@
-lightbox navigation
-contact modal css + console log (for input)
-aria label + nav with keyboard on photographer page
-clean sort system to something more readable +option asc desc
-finish css dropdown
+CSS:
+contact modal + lightbox btn + dropdown
+ACCESSIBILITY:
+aria label
+clean sort system to something more readable
 
 wtf color dont correspond to what they say on design send mail

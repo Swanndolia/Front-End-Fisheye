@@ -32,11 +32,13 @@
     </section>
   </main>
   <div id="lightbox">
-    <button onclick="closeLightbox()" class="close-lightbox">x</button>
-    <nav class="nav-lightbox">
-      <button onclick="navPrevFigure()">left</button><button onclick="navNextFigure()">right</button>
-    </nav>
     <div class="lightbox-preview">
+      <div class="nav-image-container">
+        <button onclick="navPrevFigure()" class="nav-prev-lightbox-btn">left</button>
+        <span class="lightbox-btn-container"> <button onclick="closeLightbox()" class="close-lightbox">x</button><button onclick="navNextFigure()"
+            class="nav-next-lightbox-btn">right</button></span>
+
+      </div>
     </div>
   </div>
   <div id="contact_modal">
