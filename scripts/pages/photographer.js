@@ -7,6 +7,7 @@ const priceElem = document.createElement("p");
 const totalLikesElem = document.createElement("p");
 const userInfosElem = document.createElement('article');
 const nameElem = document.createElement("h1");
+const contactNameElem = document.querySelector("h2");
 const loationElem = document.createElement("p");
 const taglineElem = document.createElement("p");
 const imgElem = document.createElement("img");
@@ -47,6 +48,7 @@ function setupUserCardDOM(userDetails) {
 
     priceElem.textContent = [price, "€ / jour"].join("");
     nameElem.textContent = name;
+    contactNameElem.innerHTML += ["<br />", name].join("");
     loationElem.textContent = [city, country].join(", ")
     taglineElem.textContent = tagline
 
@@ -146,7 +148,8 @@ function closeLightbox() {
 }
 
 function showModalContact() {
-    modalContact.style.display = "block";
+    modalContact.style.display = "flex";
+
 }
 
 function getTotalLikes(mediaList) {

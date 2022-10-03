@@ -28,7 +28,7 @@ function mediaFactory(data) {
             videoElem.style.cursor = "pointer"
             figure.appendChild(videoElem);
         }
-        figureLink.setAttribute('href', "#")
+        figureLink.setAttribute('href', "javascript:;")
         figure.appendChild(figcaption);
         nameElem.textContent = title;
         likesElem.textContent = [likes, "❤"].join(" ");

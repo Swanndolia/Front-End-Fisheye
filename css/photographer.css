@@ -65,7 +65,7 @@
     align-self: flex-start;
 }
 
-.nav-image-container button {
+.nav-image-container i {
     height: 20px;
     align-self: center;
 }
@@ -87,6 +87,10 @@
 
 main {
     margin: 0 100px;
+}
+
+i{
+    cursor: pointer;
 }
 
 .media_section {
@@ -256,6 +260,7 @@ nav {
 .modal header {
     justify-content: space-between;
     width: 100%;
+    height: auto;
 }
 
 .modal header img {
@@ -265,7 +270,7 @@ nav {
 .modal header h2 {
     font-size: 64px;
     font-weight: normal;
-    text-align: center;
+    margin: 0;
 }
 
 form {
