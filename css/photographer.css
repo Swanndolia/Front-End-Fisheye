@@ -28,6 +28,13 @@
     width: 90%;
 }
 
+.nav-prev-lightbox-btn, .nav-next-lightbox-btn, .close-lightbox{
+    border: none;
+    background-color: transparent;
+    font-size: xx-large;
+    color: #D3573C;
+}
+
 .lightbox-preview {
     height: 100%;
     display: flex;

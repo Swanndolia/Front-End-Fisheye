@@ -42,7 +42,6 @@ async function displayData(userDetails) {
 };
 
 function setupUserCardDOM(userDetails) {
-    console.log(userDetails)
     const { name, country, city, tagline, price, portrait, id } = userDetails;
     const picture = `assets/photographers/${portrait}`;
 
@@ -143,7 +142,6 @@ function navNextFigure() {
 }
 
 function closeLightbox() {
-    console.log()
     lightBoxElem.style.display = "none";
 }
 
@@ -160,15 +158,17 @@ function getTotalLikes(mediaList) {
     return totalLikes;
 }
 
-async function sortMedia(order) {
-    nestedSort = (prop1, prop2 = null, direction = 'asc') => (e1, e2) => {
-        const a = prop2 ? e1[prop1][prop2] : e1[prop1],
-            b = prop2 ? e2[prop1][prop2] : e2[prop1],
-            sortOrder = direction === "asc" ? 1 : -1
-        return (a < b) ? -sortOrder : (a > b) ? sortOrder : 0;
-    }//change it'sawful
-    mediaList.sort(nestedSort(order))
+function logForm(e) {
+    e.preventDefault()
+    const inputs = [...document.getElementsByClassName("form-input")];
+    inputs.forEach(input => {
+        console.log(input.id);
+        console.log(input.value);
+    });
+}
 
+async function sortMedia(order) {
+    mediaList.sort((elem1,elem2) => (elem1[order] > elem2[order]) ? 1 : ((elem2[order] > elem1[order]) ? -1 : 0))
     displayMedias()
 }
 

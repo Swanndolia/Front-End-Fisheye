@@ -35,10 +35,10 @@
   <div id="lightbox">
     <div class="lightbox-preview">
       <div class="nav-image-container">
-        <i class="nav-prev-lightbox-btn fa fa-chevron-left" onclick="navPrevFigure()"></i>
+        <button class="nav-prev-lightbox-btn" onclick="navPrevFigure()"><i class="fa fa-chevron-left"></i></button>
         <span class="lightbox-btn-container">
-          <i class="close-lightbox fad fa-window-close" onclick="closeLightbox()"></i>
-          <i class="nav-next-lightbox-btn fa fa-chevron-right" onclick="navNextFigure()"></i>
+          <button class="close-lightbox" onclick="closeLightbox()"><i class="fa fa-times"></i></button>
+          <button class="nav-next-lightbox-btn" onclick="navNextFigure()"><i class="fa fa-chevron-right"></i></button>
         </span>
 
       </div>
@@ -50,18 +50,18 @@
         <h2>Contactez-moi</h2>
         <img src="assets/icons/close.svg" onclick="closeModal()" />
       </header>
-      <form>
+      <form id="contact-form" onsubmit="logForm(event)">
         <div>
-          <label>Prénom</label>
-          <input />
-          <label>Nom</label>
-          <input />
-          <label>Email</label>
-          <input />
-          <label>Votre message</label>
-          <input />
+          <label for="firstname">Prénom</label>
+          <input class="form-input" id="firstname"/>
+          <label for="lastname">Nom</label>
+          <input class="form-input" id="lastname"/>
+          <label for="mail">Email</label>
+          <input class="form-input" id="mail"/>
+          <label for="content">Votre message</label>
+          <input class="form-input" id="content"/>
         </div>
-        <button class="contact_button">Envoyer</button>
+        <button type="submit" class="contact_button">Envoyer</button>
       </form>
     </div>
   </div>
