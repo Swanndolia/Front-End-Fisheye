@@ -32,6 +32,7 @@ function mediaFactory(data) {
         figure.appendChild(figcaption);
         nameElem.textContent = title;
         likesElem.textContent = [likes, "❤"].join(" ");
+        likesElem.ariaLabel = "likes"
         likesElem.classList.add("likes-btn")
         likesElem.addEventListener("click", function () { handleLikes(likes, likesElem) });
         figureLink.appendChild(figure);

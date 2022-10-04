@@ -16,15 +16,15 @@
   </header>
   <main id="main">
     <header class="photograph-header">
-      <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+      <button class="contact_button" aria-label="contact Me" onclick="displayModal()">Contactez-moi</button>
     </header>
     <nav>
       <p>Trier par</p>
       <div class="dropdown">
-        <button onclick="sortMedia('likes')" class="sort-btn">Popularité <i class="fa fa-chevron-down"></i></button>
+        <button onclick="sortMedia('likes')" class="sort-btn" aria-label="Order by" role="button" aria-haspopup="listbox" aria-expanded="true">Popularité <i class="fa fa-chevron-down"></i></button>
         <div class="dropdown-sort">
-          <button onclick="sortMedia('date')">Date</button>
-          <button onclick="sortMedia('title')">Titre</button>
+          <button onclick="sortMedia('date')" role="listbox" aria-activedescendant="true" aria-selected="true" >Date</button>
+          <button onclick="sortMedia('title')" role="listbox" aria-activedescendant="true" aria-selected="true">Titre</button>
         </div>
       </div>
     </nav>
