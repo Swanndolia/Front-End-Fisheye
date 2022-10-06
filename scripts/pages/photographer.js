@@ -68,6 +68,7 @@ function setupUserCardDOM(userDetails) {
 
 function displayMedias() {
     const mediaSection = document.querySelector(".media_section");
+    mediaPreviewArray = []
     mediaSection.replaceChildren()
     mediaList.forEach((media, index) => {
         const mediaProcessing = mediaFactory(media);

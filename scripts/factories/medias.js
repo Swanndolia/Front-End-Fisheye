@@ -29,6 +29,7 @@ function mediaFactory(data) {
             figure.appendChild(videoElem);
         }
         figureLink.setAttribute('href', "javascript:;")
+        figure.classList.add("thumbnail");
         figure.appendChild(figcaption);
         nameElem.textContent = title;
         likesElem.textContent = [likes, "❤"].join(" ");

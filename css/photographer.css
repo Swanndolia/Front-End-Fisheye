@@ -103,8 +103,11 @@ i{
 .media_section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
+    gap: 00px;
     margin-top: 100px;
+}
+.thumbnail{
+    margin: 0;
 }
 
 .media_section img,
